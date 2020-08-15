@@ -1,6 +1,6 @@
 import UIKit
 
-final class Question2ViewController: UIViewController {
+final class Question2ViewController: UIViewController,UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -14,11 +14,16 @@ final class Question2ViewController: UIViewController {
 extension Question2ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // TableViewに表示する行数を指定する
-        return 0
+        return areaTexts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // 仮のセル
-        return UITableViewCell()
+        
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath)
+        
+        let label1 = cell.viewWithTag(2) as? UILabel
+        label1?.text = String(describing: areaTexts[indexPath.row])
+        
+        return cell
     }
 }
