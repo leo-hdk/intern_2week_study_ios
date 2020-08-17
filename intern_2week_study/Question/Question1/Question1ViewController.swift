@@ -34,8 +34,6 @@ final class Question1ViewController: UIViewController {
             //textFieldをクリア
             textField.text = ""
         }
- 
- 
     }
     
     @IBAction func tapClearButton(_ sender: Any) {
